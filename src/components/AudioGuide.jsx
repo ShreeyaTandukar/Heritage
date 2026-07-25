@@ -3,7 +3,7 @@ import { features } from "../data/audioGuide";
 import { Lock } from "lucide-react";
 import UnlockedModal from "./UnlockedModal";
 
-const AudioGuide = () => {
+const AudioGuide = ({ site }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -73,8 +73,7 @@ const AudioGuide = () => {
       </section>
 
       {/* Modal */}
-      {showModal && (
-        <UnlockedModal onClose={() => setShowModal(false)} />
+{showModal && (<UnlockedModal site={site} onClose={() => setShowModal(false)}/>
       )}
     </>
   );

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Lock, Award, ArrowRight } from "lucide-react";
-import badge from "../assets/images/badge.jpg";
+import badgeFallback from "/images/badge.jpg";
 import UnlockedModal from "./UnlockedModal";
 
-const Badge = () => {
+const Badge = ({ site }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -29,7 +29,7 @@ const Badge = () => {
           <p className="text-[#7A6A58] mt-3 leading-7">
             Complete your HeritageLink journey and unlock
             an exclusive digital badge celebrating your visit
-            to Bagh Bhairav Temple.
+            to {site?.name || "this heritage site"}.
           </p>
 
         </div>
@@ -41,7 +41,7 @@ const Badge = () => {
           <div className="relative">
 
             <img
-              src={badge}
+              src={site?.badge?.image || badgeFallback}
               alt="Heritage Badge"
               className="w-full h-80 object-contain bg-[#FFF8EF] blur-[2px]"
             />
@@ -72,10 +72,8 @@ const Badge = () => {
 
             <p className="text-[#6B5A48] leading-8">
 
-              Unlock this exclusive digital badge after
-              purchasing your authentic HeritageLink souvenir.
-              Display your achievement and continue collecting
-              badges from heritage sites across Nepal.
+              {site?.badge?.description ||
+                "Unlock this exclusive digital badge after purchasing your authentic HeritageLink souvenir. Display your achievement and continue collecting badges from heritage sites across Nepal."}
 
             </p>
 
@@ -97,7 +95,7 @@ const Badge = () => {
       </section>
 
       {showModal && (
-        <UnlockedModal onClose={() => setShowModal(false)} />
+        <UnlockedModal site={site} onClose={() => setShowModal(false)} />
       )}
     </>
   );

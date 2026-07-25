@@ -1,7 +1,7 @@
 import { UserCircle2, ShieldCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const PremiumNavbar = () => {
+const PremiumNavbar = ({ site }) => {
 
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ const PremiumNavbar = () => {
           </div>
 
           <h2 className="text-white text-lg font-bold mt-1">
-            Bagh Bhairav Explorer
+            {site?.name ? `${site.name} Explorer` : "Heritage Explorer"}
           </h2>
 
         </div>

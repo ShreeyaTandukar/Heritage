@@ -1,12 +1,13 @@
-import heroImage from "../assets/images/baghbhairavtemple.png";
+import { useEffect, useState } from "react";
+import heroImageFallback from "/images/baghbhairavtemple.png"
 
-const Hero = () => {
+const Hero = ({ site }) => {
   return (
     <section id="home" className="relative h-[88vh] overflow-hidden" >
 
       {/* Background Image */}
       <img
-        src={heroImage}
+        src={site?.heroImage || heroImageFallback}
         alt="Bagh Bhairav Temple"
         className="absolute inset-0 w-full h-full object-cover"
       />
@@ -19,21 +20,25 @@ const Hero = () => {
 
         {/* Small Badge */}
         <span className="inline-block w-fit px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-white text-xs tracking-widest uppercase">
-          Kirtipur, Nepal
+          {site?.locationLabel || "Nepal"}
         </span>
 
         {/* Title */}
         <h1 className="mt-5 text-4xl font-bold leading-tight text-white">
-          Bagh Bhairav Temple:
+          {site?.name}
           <br />
-          The Tiger Sentinel
+          {site?.tagline && (
+            <>
+            :
+            <br />
+            {site.tagline}
+            </>
+          )}
         </h1>
 
         {/* Description */}
         <p className="mt-4 text-white/85 leading-7 text-sm">
-          Standing as a silent guardian of Kirtipur for centuries,
-          this ancient fortress temple preserves the spirit of
-          Newar warriors and the divine protection of Bhairav.
+          {site?.shortDescription}
         </p>
 
         {/* Buttons */}

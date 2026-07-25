@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../utils/api";
 import UnlockLoader from "./premium/UnlockLoader";
 
-const UnlockedModal = ({ onClose }) => {
+const UnlockedModal = ({ onClose, site }) => {
   const [showInput, setShowInput] = useState(false);
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
@@ -51,7 +51,9 @@ const UnlockedModal = ({ onClose }) => {
   // Once the code is verified, show the branded unlock animation
   // and only navigate to /premium once it finishes playing.
   if (showLoader) {
-    return <UnlockLoader onComplete={() => navigate("/premium")} />;
+    return (
+      <UnlockLoader onComplete={() => navigate(`/premium/${site?.slug}`)} />
+    );
   }
 
   return (

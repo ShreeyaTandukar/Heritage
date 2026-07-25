@@ -1,17 +1,30 @@
-import React, { useRef, useState } from "react";
-import templeImage from "../assets/images/image.png";
-import templeAudio from "../assets/audio/baghbhairav.mp3";
+import React, { useRef, useState, useEffect } from "react";
+import templeImageFallback from "/images/image.png";
+import templeAudioFallback from "/audio/baghbhairav.mp3";
 
 import {
   Play,
   Pause
 } from "lucide-react";
 
-const AudioPlayer = () => {
+const AudioPlayer = ({site}) => {
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
   const [currentTime,setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+
+  const image = site?.heroImage || templeImageFallback;
+  const audioSrc = site?.audioGuide || templeAudioFallback;
+
+  //if the site changes, stop playback and ler the <audio> element reload the new source
+  useEffect(() => {
+    setPlaying(false);
+    setCurrentTime(0);
+    if(audioRef.current){
+      audioRef.current.load();
+    }
+  }, [audioSrc]);
+  
 
   const handlePlay = () => {
     if(!audioRef.current) return;
@@ -49,7 +62,7 @@ const AudioPlayer = () => {
       <div className="relative rounded-3xl overflow-hidden shadow-lg">
 
         <img
-          src={templeImage}
+          src={image}
           alt="Bagh Bhairav Temple"
           className="w-full h-64 object-cover"
         />
@@ -65,11 +78,11 @@ const AudioPlayer = () => {
           </p>
 
           <h2 className="text-white text-4xl font-bold mt-2 leading-tight">
-            Bagh Bhairav Temple
+            {site?.name}
           </h2>
 
           <p className="text-white/90 mt-2">
-            Kirtipur, Kathmandu
+            {site?.locationLabel}
           </p>
 
         </div>
@@ -83,7 +96,7 @@ const AudioPlayer = () => {
         <div className="flex gap-4">
 
           <img
-            src={templeImage}
+            src={image}
             alt=""
             className="w-20 h-20 rounded-2xl object-cover"
           />
@@ -95,7 +108,7 @@ const AudioPlayer = () => {
             </p>
 
             <h3 className="font-bold text-[#4B2E2A] mt-1">
-              The Legend of the Tongue-less Deity
+              {site?.audioTitle || "Heritage Story"}
             </h3>
 
             {/* Progress Bar */}
@@ -160,7 +173,7 @@ const AudioPlayer = () => {
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={handleEnded}
       >
-        <source src={templeAudio} type="audio/mp3" />
+        <source src={audioSrc} type="audio/mp3" />
       </audio>
       
 

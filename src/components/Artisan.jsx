@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import artisanImage from "../assets/images/artisan.jpg";
+import artisanImage from "/images/artisan.jpg";
 import {Lock, ArrowRight} from "lucide-react";
 import UnlockedModal from './UnlockedModal';
 
-const Artisan = ({}) => {
+const Artisan = ({site}) => {
     const[showModal, setShowModal] = useState(false);
   return (
     <section id="artisan" className="bg-[#F8F4EE] px-6 pb-12 " data-aos="fade-up">
@@ -15,7 +15,7 @@ const Artisan = ({}) => {
         <div className="relative">
 
           <img
-            src={artisanImage}
+            src={site?.artisan?.image || artisanImage}
             alt="Artisan"
             className="w-full h-72 object-cover blur-[2px]"
           />
@@ -87,7 +87,7 @@ const Artisan = ({}) => {
         </div>
 
       </div>
-      {showModal && (<UnlockedModal onClose={() => setShowModal(false)}/>
+      {showModal && (<UnlockedModal site={site} onClose={() => setShowModal(false)}/>
     )}
 
     </section>

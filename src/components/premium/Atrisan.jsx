@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
 import {UserRound, PlayCircle, MapPin, Hammer} from "lucide-react";
-import heroImage from "../../assets/images/artisan.jpg";
-import heroVideo from "../../assets/videos/baghbhairav.mp4";
+import artisanImageFallback from "/images/artisan.jpg";
+import heroVideoFallback from "/videos/baghbhairav.mp4";
 
-const Artisan = () => {
+const Artisan = ({ site }) => {
     const[showVideo, setShowVideo] =useState(false);
+
+    const artisan = site?.artisan || {};
+    const image = artisan.image || artisanImageFallback;
+    // No dedicated per-artisan video field yet — reuses the site's video
+    // as a placeholder until a specific artisan video URL is added.
+    const video = site?.video || heroVideoFallback;
+
   return (
 <section className='bg-[#EFE8DE] px-6 py-16'>
     {/* Heading */}
@@ -26,8 +33,8 @@ const Artisan = () => {
       <div className='mt-10'>
         <div className='rounded-3xl overflow-hidden shadow-xl'>
           <img
-            src={heroImage}
-            alt="Artisan"
+            src={image}
+            alt={artisan.name || "Artisan"}
             className='w-full h-64 object-cover'
           />
         </div>
@@ -45,33 +52,33 @@ const Artisan = () => {
       <div className='mt-12 grid md:grid-cols-2 gap-10 items-center'>
         {/* Left */}
         <div>
-          <h3 className='text-3xl font-bold text-[#4B2E2A]'>RajBhai Tandukar</h3>
+          <h3 className='text-3xl font-bold text-[#4B2E2A]'>{artisan.name}</h3>
           <div className='mt-6 space-y-4'>
-            <div className='flex items-center gap-3'>
-              <Hammer size={18} className='text-[#D6A94F]'/>
-              <span>Master Wood Carver</span>
-            </div>
-            <div className='flex items-center gap-3'>
-              <MapPin size={18} className='text-[#D6A94F]'/>
-              <span>Balambu, Chandagiri</span>
-            </div>
+            {artisan.role && (
+              <div className='flex items-center gap-3'>
+                <Hammer size={18} className='text-[#D6A94F]'/>
+                <span>{artisan.role}</span>
+              </div>
+            )}
+            {artisan.location && (
+              <div className='flex items-center gap-3'>
+                <MapPin size={18} className='text-[#D6A94F]'/>
+                <span>{artisan.location}</span>
+              </div>
+            )}
           </div>
           <p className='mt-6 text-[#6B5A48] leading-8'>
-             With over 25 years of experience, RajBhai 
-             Tandukar continues the traditional Newar art
-              of wood carving. Every HeritageLink souvenir
-              is handcrafted with dedication and respect
-              for Nepal's cultural heritage.
+             {artisan.bio}
           </p>
         </div>
         {/* Right */}
         <div className='rounded-3xl overflow-hidden shadow-xl'>
           <video
           controls
-          poster={heroImage}
+          poster={image}
           className="w-full rounded-3xl"
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src={video} type="video/mp4" />
         </video>
         </div>
       </div>

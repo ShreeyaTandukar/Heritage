@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import { Lock, Image, ArrowRight } from "lucide-react";
 
-import baghbhairav from "../assets/images/baghbhairavtemple.png";
-import image from "../assets/images/image.png";
-import gallery from "../assets/images/gallery.jpg";
-import gallery1 from "../assets/images/gallery1.jpg";
+import baghbhairavFallback from "/images/baghbhairavtemple.png";
+import imageFallback from "/images/image.png";
+import galleryFallback from "/images/gallery.jpg";
+import gallery1Fallback from "/images/gallery1.jpg";
 
 import UnlockedModal from "./UnlockedModal";
 
-const HeritageGallery = () => {
+const HeritageGallery = ({ site }) => {
   const [showModal, setShowModal] = useState(false);
+
+  const featuredImage = site?.heroImage || baghbhairavFallback;
+
+  // Use the site's gallery from the database if it has any images,
+  // otherwise fall back to the bundled placeholder photos.
+  const thumbnails =
+    site?.gallery && site.gallery.length > 0
+      ? site.gallery
+      : [imageFallback, galleryFallback, gallery1Fallback];
 
   return (
     <>
@@ -47,8 +56,8 @@ const HeritageGallery = () => {
         >
 
           <img
-            src={baghbhairav}
-            alt="Bagh Bhairav Temple"
+            src={featuredImage}
+            alt={site?.name || "Heritage site"}
             className="w-full h-64 object-cover blur-[2px] group-hover:scale-105 transition duration-500"
           />
 
@@ -78,7 +87,7 @@ const HeritageGallery = () => {
 
         <div className="grid grid-cols-3 gap-3 mt-4">
 
-          {[image, gallery, gallery1].map((img, index) => (
+          {thumbnails.map((img, index) => (
 
             <div
               key={index}
@@ -144,6 +153,7 @@ const HeritageGallery = () => {
 
       {showModal && (
         <UnlockedModal
+          site={site}
           onClose={() => setShowModal(false)}
         />
       )}

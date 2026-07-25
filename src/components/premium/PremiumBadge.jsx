@@ -2,7 +2,7 @@ import React from "react";
 import { Award, Gift } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-const PremiumBadge = () => {
+const PremiumBadge = ({ site }) => {
   const navigate = useNavigate();
 
   return (
@@ -31,7 +31,7 @@ const PremiumBadge = () => {
 
         <p className="mt-4 text-[#6B5A48] leading-8 max-w-xl mx-auto">
           You have completed the Heritage Journey of
-          <span className="font-semibold"> Bagh Bhairav Temple</span>.
+          <span className="font-semibold"> {site?.name || "this heritage site"}</span>.
 
           <br /><br />
 

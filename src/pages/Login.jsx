@@ -40,7 +40,7 @@ const Login = () => {
 
       if (pendingCode) {
         try {
-          await api.post(
+          const claimResponse = await api.post(
             "/activation/claim",
             { code: pendingCode },
             {
@@ -49,6 +49,12 @@ const Login = () => {
               },
             }
           );
+
+          // Claim succeeded, but they may have already owned this
+          // site's badge from a previous code — let them know either way.
+          if (claimResponse.data.alreadyOwned) {
+            alert(claimResponse.data.message);
+          }
         } catch (claimError) {
           // Login still succeeded even if the badge claim failed
           // (e.g. code already used) — don't block navigation.
@@ -86,6 +92,7 @@ const Login = () => {
         finishedTag="Access Granted"
         onComplete={() => navigate("/passport")}
       />
+      
     );
   }
 

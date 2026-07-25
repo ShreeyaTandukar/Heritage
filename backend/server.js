@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const heritageRoutes = require("./routes/heritageRoutes");
 
 // 1. Load environment variables FIRST before calling connectDB()
 dotenv.config();
@@ -12,6 +13,7 @@ connectDB();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use("/api/sites",heritageRoutes);
 
 //routes
 const authRoutes = require("./routes/authRoutes");

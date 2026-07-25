@@ -1,14 +1,17 @@
 import React, {useState} from 'react'
 import {Images, Expand} from "lucide-react"
 
-import img1 from "../../assets/images/baghbhairavtemple.png";
-import img2 from "../../assets/images/gallery.jpg";
-import img3 from "../../assets/images/gallery1.jpg";
-import img4 from "../../assets/images/image.png";
-const images = [img1, img2, img3, img4];
+import img1 from "/images/baghbhairavtemple.png";
+import img2 from "/images/gallery.jpg";
+import img3 from "/images/gallery1.jpg";
+import img4 from "/images/image.png";
+const fallbackImages = [img1, img2, img3, img4];
 
-const PremiumGallery = () => {
+const PremiumGallery = ({ site }) => {
   const [open, setOpen] = useState(false);
+
+  const images =
+    site?.gallery && site.gallery.length > 0 ? site.gallery : fallbackImages;
 
   return (
     <section className="bg-[#EFE8DE] px-6 py-16">
@@ -29,7 +32,7 @@ const PremiumGallery = () => {
           <p className="mt-4 text-[#6B5A48] leading-8">
             Discover exclusive photographs,
             hidden corners, architecture and
-            beautiful moments of Bagh Bhairav Temple.
+            beautiful moments of {site?.name || "this heritage site"}.
           </p>
 
           <button

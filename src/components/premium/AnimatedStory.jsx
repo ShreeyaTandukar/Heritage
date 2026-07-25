@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { PlayCircle, Clock3, Sparkles } from "lucide-react";
-import heroVideo from "../../assets/videos/baghbhairav.mp4";
-import heroImage from "../../assets/images/baghbhairavtemple.png";
-const AnimatedStory = () => {
+import heroVideoFallback from "/videos/baghbhairav.mp4";
+import heroImageFallback from "/images/baghbhairavtemple.png";
+
+const AnimatedStory = ({ site }) => {
   const [showVideo, setShowVideo] = useState(false);
+
+  const image = site?.heroImage || heroImageFallback;
+  const video = site?.video || heroVideoFallback;
 
   return (
     <section
@@ -25,7 +29,7 @@ const AnimatedStory = () => {
 
         <p className="mt-4 text-[#6B5A48] leading-8">
           Experience the complete legend of
-          Bagh Bhairav Temple through cinematic
+          {" "}{site?.name || "this heritage site"} through cinematic
           storytelling.
         </p>
 
@@ -40,8 +44,8 @@ const AnimatedStory = () => {
           <div className="rounded-3xl overflow-hidden shadow-xl">
 
             <img
-              src={heroImage}
-              alt="Bagh Bhairav"
+              src={image}
+              alt={site?.name || "Heritage site"}
               className="w-full h-60 object-cover"
             />
 
@@ -84,9 +88,9 @@ const AnimatedStory = () => {
             <p className="mt-6 text-[#6B5A48] leading-8">
 
               This premium animated film tells the
-              legendary story of Bagh Bhairav Temple,
-              its origin, Newar traditions,
-              and its role as the protector of Kirtipur.
+              legendary story of {site?.name || "this heritage site"},
+              its origin, traditions,
+              and its role in Nepal's living heritage.
 
             </p>
 
@@ -98,10 +102,10 @@ const AnimatedStory = () => {
 
            <video
                 controls
-                poster={heroImage}
+                poster={image}
                 className="w-full h-72 object-cover"
             >
-            <source src={heroVideo} type="video/mp4" />
+            <source src={video} type="video/mp4" />
             </video>
 
             {/* Replace this image with a real video later */}

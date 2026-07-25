@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Lock, ScrollText, ArrowRight } from "lucide-react";
 import UnlockedModal from "./UnlockedModal";
 
-import parchment from "../assets/images/parchment.jpeg";
+import parchment from "/images/parchment.jpeg";
 
-const HiddenStory = () => {
+const HiddenStory = ({ site }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -54,10 +54,6 @@ const HiddenStory = () => {
 
           <div className="relative p-10 text-center">
 
-           
-
-           
-
             {/* Lock */}
 
             <div className="mt-6 flex justify-center">
@@ -84,9 +80,9 @@ const HiddenStory = () => {
 
             <p className="italic text-[#5E4633] text-lg leading-8">
 
-              “Some stories are not written in books.
+              "Some stories are not written in books.
               They live in the voices of those who
-              protect Nepal's heritage.”
+              protect Nepal's heritage."
 
             </p>
 
@@ -98,11 +94,8 @@ const HiddenStory = () => {
 
             <p className="text-[#4B2E2A] leading-8">
 
-              Unlock exclusive legends, forgotten rituals,
-              hidden temple secrets, sacred beliefs,
-              and fascinating stories surrounding
-              Bagh Bhairav Temple that very few visitors
-              ever get to hear.
+              {site?.hiddenStory ||
+                `Unlock exclusive legends, forgotten rituals, hidden temple secrets, sacred beliefs, and fascinating stories surrounding ${site?.name || "this heritage site"} that very few visitors ever get to hear.`}
 
             </p>
 
@@ -126,7 +119,7 @@ const HiddenStory = () => {
       </section>
 
       {showModal && (
-        <UnlockedModal onClose={() => setShowModal(false)} />
+        <UnlockedModal site={site} onClose={() => setShowModal(false)} />
       )}
     </>
   );

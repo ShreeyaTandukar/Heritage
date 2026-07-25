@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { BookOpen, ArrowRight } from "lucide-react";
-import { chapters } from "../../data/historyChapter";
+import { chapters as fallbackChapters } from "../../data/historyChapter";
 
-const PremiumHistory = () => {
+const PremiumHistory = ({ site }) => {
   const [current, setCurrent] = useState(-1);
+
+  // Use the site's own chapters from the database if it has any,
+  // otherwise fall back to the bundled Bagh Bhairav story.
+  const chapters =
+    site?.chapters && site.chapters.length > 0
+      ? site.chapters
+      : fallbackChapters;
 
   const nextChapter = () => {
     if (current < chapters.length - 1) {
@@ -28,7 +35,7 @@ const PremiumHistory = () => {
 
           <p className="mt-5 text-[#6B5A48] leading-8">
             Discover the untold legends of
-            Bagh Bhairav Temple preserved
+            {" "}{site?.name || "this heritage site"} preserved
             through generations.
           </p>
 
@@ -61,7 +68,7 @@ const PremiumHistory = () => {
 
           {/* Timeline */}
 
-          {chapters[current].timeline && (
+          {chapters[current].timeline && chapters[current].timeline.length > 0 && (
             <div className="mt-8 space-y-5">
 
               {chapters[current].timeline.map((item, index) => (

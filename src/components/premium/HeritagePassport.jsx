@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
 import PremiumFooter from "./PremiumFooter";
 
-import badge from "../../assets/images/badge.jpg";
+import badge from "/images/badge.jpg";
 
 const HeritagePassport = () => {
   const navigate = useNavigate();
@@ -21,9 +21,11 @@ const HeritagePassport = () => {
   const [editing, setEditing] = useState(false);
   const [editedName, setEditedName] = useState("");
   const [saving, setSaving] = useState(false);
+  const [sites, setSites] = useState([]);
 
   useEffect(() => {
     fetchUser();
+    fetchSites();
   }, []);
 
   const fetchUser = async () => {
@@ -31,6 +33,18 @@ const HeritagePassport = () => {
       const response = await api.get("/auth/profile");
 
       setUser(response.data.user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Pull every active heritage site from the database so the collection
+  // below always reflects what's actually seeded, instead of a fixed list.
+  const fetchSites = async () => {
+    try {
+      const response = await api.get("/sites");
+
+      setSites(response.data.sites || []);
     } catch (error) {
       console.log(error);
     }
@@ -253,17 +267,18 @@ const HeritagePassport = () => {
     Heritage Collection
   </h2>
 
-  {[
-    { name: "Bagh Bhairav", label: "Bagh Bhairav Explorer", image: badge },
-    { name: "Nyatapola", label: "Nyatapola Temple" },
-    { name: "Pashupatinath", label: "Pashupatinath Temple" },
-    { name: "Swayambhunath", label: "Swayambhunath" },
-  ].map((site, index) => {
+  {sites.length === 0 && (
+    <p className="text-sm text-gray-400">
+      No heritage sites found yet — seed one into the database to see it here.
+    </p>
+  )}
+
+  {sites.map((site, index) => {
     const unlocked = user?.journeys?.includes(site.name);
 
     return (
       <div
-        key={index}
+        key={site._id || index}
         className={`flex items-center gap-4 rounded-2xl p-4 ${
           index > 0 ? "mt-4" : ""
         } ${
@@ -272,10 +287,10 @@ const HeritagePassport = () => {
             : "bg-[#F8F8F8] border border-gray-200"
         }`}
       >
-        {unlocked && site.image ? (
+        {unlocked && (site.badge?.image || badge) ? (
           <img
-            src={site.image}
-            alt={site.label}
+            src={site.badge?.image || badge}
+            alt={site.badge?.title || site.name}
             className="w-16 h-16 object-contain"
           />
         ) : (
@@ -288,7 +303,7 @@ const HeritagePassport = () => {
               unlocked ? "text-[#4B2E2A]" : "text-gray-500"
             }`}
           >
-            {site.label}
+            {site.badge?.title || site.name}
           </h3>
 
           <p

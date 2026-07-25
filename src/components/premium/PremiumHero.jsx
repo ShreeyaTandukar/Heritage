@@ -1,8 +1,8 @@
 import React from 'react'
 import { PlayCircle, ShieldCheck, ChevronDown } from 'lucide-react';
-import heroImage from "../../assets/images/baghbhairavtemple.png";
+import heroImageFallback from "/images/baghbhairavtemple.png";
 
-const PremiumHero = () => {
+const PremiumHero = ({ site }) => {
     const scrollToVideo = () =>{
         const section = document.getElementById("premium-video");
         section?.scrollIntoView({
@@ -13,8 +13,8 @@ const PremiumHero = () => {
     <section className='relative h-screen overflow-hidden'>
         {/* Background */}
         <img
-            src={heroImage}
-            alt='Bagh Bhairav Temple'
+            src={site?.heroImage || heroImageFallback}
+            alt={site?.name || "Heritage site"}
             className='absolute inset-0 w-full h-full object-cover'
         />
         {/* Overlay */}
@@ -28,9 +28,7 @@ const PremiumHero = () => {
             </span>
             {/* Title */}
             <h1 className='mt-6 text-5xl font-bold text-white leading-tight'>
-                Bagh Bhairav
-                <br />
-                Temple
+                {site?.name}
             </h1>
             {/* Subtitle */}
             <p className='mt-4 text-[#E7E0D5] leading-7'>
