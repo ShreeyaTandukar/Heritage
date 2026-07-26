@@ -85,7 +85,7 @@ const HeritageGallery = ({ site }) => {
 
         {/* Small Gallery */}
 
-        <div className="grid grid-cols-3 gap-3 mt-4">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mt-4">
 
           {thumbnails.map((img, index) => (
 
@@ -140,7 +140,7 @@ const HeritageGallery = ({ site }) => {
 
         <button
           onClick={() => setShowModal(true)}
-          className="w-full mt-8 bg-[#7B1E23] hover:bg-[#65161B] text-white py-4 rounded-2xl font-semibold flex justify-center items-center gap-3 transition duration-300"
+          className="bg-[#7B1E23] hover:bg-[#65161B] text-white px-8 py-4 rounded-2xl font-semibold flex items-center gap-3 transition duration-300"
         >
 
           Unlock Gallery

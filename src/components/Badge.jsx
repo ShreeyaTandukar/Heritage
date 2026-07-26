@@ -8,11 +8,13 @@ const Badge = ({ site }) => {
 
   return (
     <>
-      <section id="badge" className="bg-[#F8F4EE] px-6 pb-12" data-aos="fade-up">
+      <section id="badge" className="bg-[#F8F4EE] px-6 md:px-16 lg:px-24 pb-12 md:pb-20" data-aos="fade-up">
+
+        <div className="md:grid md:grid-cols-2 md:gap-12 md:items-center">
 
         {/* Heading */}
 
-        <div className="mb-6">
+        <div className="mb-6 md:mb-0">
 
           <span className="inline-flex items-center gap-2 bg-[#FFF5D8] px-4 py-2 rounded-full">
             <Award size={16} className="text-[#D6A94F]" />
@@ -22,11 +24,11 @@ const Badge = ({ site }) => {
             </span>
           </span>
 
-          <h2 className="text-3xl font-bold text-[#4B2E2A] mt-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#4B2E2A] mt-4">
             Collect Your Heritage Badge
           </h2>
 
-          <p className="text-[#7A6A58] mt-3 leading-7">
+          <p className="text-[#7A6A58] mt-3 leading-7 md:text-lg md:leading-8 md:max-w-md">
             Complete your HeritageLink journey and unlock
             an exclusive digital badge celebrating your visit
             to {site?.name || "this heritage site"}.
@@ -36,7 +38,7 @@ const Badge = ({ site }) => {
 
         {/* Badge Card */}
 
-        <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden md:max-w-md md:mx-auto">
 
           <div className="relative">
 
@@ -89,6 +91,8 @@ const Badge = ({ site }) => {
             </button>
 
           </div>
+
+        </div>
 
         </div>
 

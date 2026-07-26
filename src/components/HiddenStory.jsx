@@ -9,11 +9,11 @@ const HiddenStory = ({ site }) => {
 
   return (
     <>
-      <section id="story" className="bg-[#F8F4EE] px-6 pb-12" data-aos="fade-up">
+      <section id="story" className="bg-[#F8F4EE] px-6 md:px-16 lg:px-24 pb-12 md:pb-20" data-aos="fade-up">
 
         {/* Heading */}
 
-        <div className="mb-6">
+        <div className="mb-6 md:text-center">
 
           <span className="inline-flex items-center gap-2 bg-[#FFF5D8] px-4 py-2 rounded-full">
             <ScrollText size={16} className="text-[#D6A94F]" />
@@ -23,11 +23,11 @@ const HiddenStory = ({ site }) => {
             </span>
           </span>
 
-          <h2 className="text-3xl font-bold text-[#4B2E2A] mt-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#4B2E2A] mt-4">
             Hidden Story
           </h2>
 
-          <p className="text-[#7A6A58] mt-3 leading-7">
+          <p className="text-[#7A6A58] mt-3 leading-7 md:text-lg md:max-w-xl md:mx-auto">
             Discover ancient legends, forgotten traditions,
             and sacred stories passed down through generations.
           </p>
@@ -38,7 +38,7 @@ const HiddenStory = ({ site }) => {
 
         <div
           onClick={() => setShowModal(true)}
-          className="relative overflow-hidden rounded-3xl shadow-2xl border border-[#D6A94F]/40 cursor-pointer group"
+          className="relative overflow-hidden rounded-3xl shadow-2xl border border-[#D6A94F]/40 cursor-pointer group md:max-w-2xl md:mx-auto"
           style={{
             backgroundImage: `url(${parchment})`,
             backgroundSize: "cover",

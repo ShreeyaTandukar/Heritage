@@ -8,11 +8,11 @@ const Artisan = ({site}) => {
   return (
     <section id="artisan" className="bg-[#F8F4EE] px-6 pb-12 " data-aos="fade-up">
 
-      <div className="bg-white rounded-3xl overflow-hidden shadow-xl">
+      <div className="bg-white rounded-3xl overflow-hidden shadow-xl md:flex md:items-stretch">
 
         {/* Image */}
 
-        <div className="relative">
+        <div className="relative md:w-1/2">
 
           <img
             src={site?.artisan?.image || artisanImage}
@@ -50,7 +50,7 @@ const Artisan = ({site}) => {
 
         {/* Bottom */}
 
-        <div className="p-7">
+        <div className="p-7 md:w-1/2 md:flex md:flex-col md:justify-center">
 
           <div className="inline-flex items-center gap-2 bg-[#FFF5D8] px-4 py-2 rounded-full">
 

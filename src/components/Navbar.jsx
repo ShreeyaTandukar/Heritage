@@ -16,50 +16,50 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-[#F8F4EE]/90 backdrop-blur-md border-b border-[#E8DFC9]">
+    <header className="fixed top-0 left-0 right-0 z-50">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Navbar */}
+        <div className="bg-[#F8F4EE]/90 backdrop-blur-md border border-[#E8DFC9] rounded-2xl shadow-lg px-8 py-8 flex items-center justify-between">
+          {/* Logo */}
+          <div>
+            <h1 className="text-lg font-semibold text-[#6B0F1A]">
+              HeritageLink
+            </h1>
 
-      <div className="max-w-md mx-auto flex items-center justify-between px-4 py-3">
+            <p className="text-[9px] uppercase tracking-[4px] text-[#B08D57] mt-1">
+              Nepal
+            </p>
+          </div>
 
-        <div>
-          <h1 className="text-lg font-semibold text-[#6B0F1A]">
-            HeritageLink
-          </h1>
-
-          <p className="text-[9px] uppercase tracking-[4px] text-[#B08D57] mt-1">
-            Nepal
-          </p>
+          {/* Menu Button */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-[#FFF8EA] transition"
+          >
+            {open ? (
+              <X size={22} className="text-[#6B0F1A]" />
+            ) : (
+              <Menu size={22} className="text-[#6B0F1A]" />
+            )}
+          </button>
         </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center"
-        >
-          {open ? (
-            <X size={22} className="text-[#6B0F1A]" />
-          ) : (
-            <Menu size={22} className="text-[#6B0F1A]" />
-          )}
-        </button>
-
+        {/* Dropdown Menu */}
+        {open && (
+          <div className="mt-2 bg-white rounded-2xl shadow-xl overflow-hidden">
+            {menuItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.link}
+                onClick={() => setOpen(false)}
+                className="block px-6 py-4 border-b last:border-b-0 border-gray-100 hover:bg-[#FFF8EA] text-[#4B2E2A] font-medium transition"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
-
-      {open && (
-        <div className="max-w-md mx-auto bg-white shadow-xl rounded-b-3xl">
-
-          {menuItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.link}
-              onClick={() => setOpen(false)}
-              className="block px-6 py-4 border-b border-gray-100 hover:bg-[#FFF8EA] text-[#4B2E2A] font-medium transition"
-            >
-              {item.name}
-            </a>
-          ))}
-
-        </div>
-      )}
-
     </header>
   );
 };

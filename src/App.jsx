@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="bg-[#EFE8DE] min-h-screen">
-        <div className="max-w-md mx-auto bg-[#F8F4EE] min-h-screen shadow-xl">
+        <div className="max-w-md md:max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto bg-[#F8F4EE] min-h-screen shadow-xl">
 
           <Routes>
             {/* Redirect root URL to default heritage site */}

@@ -16,7 +16,7 @@ const Hero = ({ site }) => {
       <div className="absolute inset-0 bg-gradient-to-b from-[#23252A]/20 via-[#23252A]/40 to-[#23252A]/80"></div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-end px-6 pb-14">
+      <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 lg:px-16 pb-14 md:pb-20">
 
         {/* Small Badge */}
         <span className="inline-block w-fit px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-white text-xs tracking-widest uppercase">
@@ -24,7 +24,7 @@ const Hero = ({ site }) => {
         </span>
 
         {/* Title */}
-        <h1 className="mt-5 text-4xl font-bold leading-tight text-white">
+        <h1 className="mt-5 text-4xl font-bold leading-tight text-white max-w-3xl">
           {site?.name}
           <br />
           {site?.tagline && (
@@ -37,7 +37,7 @@ const Hero = ({ site }) => {
         </h1>
 
         {/* Description */}
-        <p className="mt-4 text-white/85 leading-7 text-sm">
+        <p className="mt-4 text-white/85 leading-7 text-sm md:text-base max-w-xl">
           {site?.shortDescription}
         </p>
 

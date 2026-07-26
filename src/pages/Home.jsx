@@ -79,8 +79,9 @@ const Home = () => {
   return (
     <>
     <Navbar site={site} />
+    <main className="pt-28">
     <Hero site={site} />
-    <AudioGuide site={site}/>
+    <AudioGuide site={site} />
     <AudioPlayer site={site} />
     <Artisan site={site} />
     <HeritageGallery site={site} />
@@ -88,8 +89,8 @@ const Home = () => {
     <Badge site={site} />
     <WhyChooseUs />
     <Footer />
-
-    </>
+  </main>
+</>
   );
 }
 

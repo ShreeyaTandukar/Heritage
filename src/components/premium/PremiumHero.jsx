@@ -41,7 +41,7 @@ const PremiumHero = ({ site }) => {
             </p>
             {/* Button */}
             <button onClick={scrollToVideo}
-                className='mt-8 w-full bg-[#D6A94F] hover:bg-[#C89B3F] text-[#23252A] py-4 rounded-2xl font-bold flex items-center justify-center gap-3 transition duration-300'>
+                className="mx-auto flex items-center justify-center gap-3 px-8 py-4 bg-[#D6A94F] hover:bg-[#C89B3F] text-[#23252A] rounded-2xl font-bold transition duration-300">
                     <PlayCircle size={26} />
                     Watch Animated Story
                 </button>

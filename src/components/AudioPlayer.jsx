@@ -56,15 +56,17 @@ const AudioPlayer = ({site}) => {
   };
 
   return (
-    <section className="bg-[#F8F4EE] px-6 pb-12" data-aos="fade-up">
+    <section className="bg-[#F8F4EE] px-6 md:px-16 lg:px-24 pb-12 md:pb-20" data-aos="fade-up">
+
+      <div className="md:grid md:grid-cols-2 md:gap-8 md:items-start">
 
       {/* Hero Image */}
-      <div className="relative rounded-3xl overflow-hidden shadow-lg">
+      <div className="relative rounded-3xl overflow-hidden shadow-lg md:h-full">
 
         <img
           src={image}
-          alt="Bagh Bhairav Temple"
-          className="w-full h-64 object-cover"
+          alt={site?.name || "Heritage site"}
+          className="w-full h-64 md:h-full object-cover"
         />
 
         {/* Overlay */}
@@ -91,7 +93,7 @@ const AudioPlayer = ({site}) => {
 
       {/* Audio Card */}
 
-      <div className="bg-white rounded-3xl shadow-xl p-5 mt-6">
+      <div className="bg-white rounded-3xl shadow-xl p-5 mt-6 md:mt-0">
 
         <div className="flex gap-4">
 
@@ -159,9 +161,9 @@ const AudioPlayer = ({site}) => {
 
           </button>
 
-         
-
         </div>
+
+      </div>
 
       </div>
 
