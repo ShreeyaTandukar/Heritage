@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import api from "../utils/api";
+import { useLanguage } from "../context/LanguageContext";
+import { getLocalizedSite } from "../utils/localizeSite";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import AudioGuide from "../components/AudioGuide";
@@ -14,6 +16,7 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   const { slug } = useParams();
+  const { language, t } = useLanguage();
 
   const [site, setSite] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -57,7 +60,7 @@ const Home = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F8F4EE]">
         <p className="text-[#7B1E23] font-semibold">
-          Loading heritage site...
+          {t("loadingSite")}
         </p>
       </div>
     );
@@ -67,7 +70,7 @@ const Home = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#F8F4EE] px-6 text-center">
         <p className="text-[#7B1E23] font-semibold text-lg">
-          {error || "Heritage site not found."}
+          {error || t("siteNotFound")}
         </p>
         <p className="text-[#8B7355] mt-2 text-sm">
           Check that "{slug}" has been seeded into the database.
@@ -76,21 +79,24 @@ const Home = () => {
     );
   }
 
+  // Every child below reads plain site.name / site.history / etc — they
+  // have no idea a translation happened, it's all merged in right here.
+  const localizedSite = getLocalizedSite(site, language);
+
   return (
     <>
-    <Navbar site={site} />
-    <main className="pt-28">
-    <Hero site={site} />
-    <AudioGuide site={site} />
-    <AudioPlayer site={site} />
-    <Artisan site={site} />
-    <HeritageGallery site={site} />
-    <HiddenStory site={site} />
-    <Badge site={site} />
+    <Navbar site={localizedSite} />
+    <Hero site={localizedSite} />
+    <AudioGuide site={localizedSite} />
+    <AudioPlayer site={localizedSite} />
+    <Artisan site={localizedSite} />
+    <HeritageGallery site={localizedSite} />
+    <HiddenStory site={localizedSite} />
+    <Badge site={localizedSite} />
     <WhyChooseUs />
     <Footer />
-  </main>
-</>
+
+    </>
   );
 }
 

@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { t } = useLanguage();
 
   const menuItems = [
-    { name: "Home", link: "#home" },
-    { name: "Audio Guide", link: "#audio" },
-    { name: "Meet the Artisan", link: "#artisan" },
-    { name: "Gallery", link: "#gallery" },
-    { name: "Hidden Story", link: "#story" },
-    { name: "Collect Badge", link: "#badge" },
-    { name: "Why Choose Us", link: "#why" },
-    { name: "Contact", link: "#contact" },
+    { name: t("navHome"), link: "#home" },
+    { name: t("navAudioGuide"), link: "#audio" },
+    { name: t("navArtisan"), link: "#artisan" },
+    { name: t("navGallery"), link: "#gallery" },
+    { name: t("navHiddenStory"), link: "#story" },
+    { name: t("navBadge"), link: "#badge" },
+    { name: t("navWhyChoose"), link: "#why" },
+    { name: t("navContact"), link: "#contact" },
   ];
 
   return (
@@ -31,17 +34,23 @@ const Navbar = () => {
             </p>
           </div>
 
-          {/* Menu Button */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-[#FFF8EA] transition"
-          >
-            {open ? (
-              <X size={22} className="text-[#6B0F1A]" />
-            ) : (
-              <Menu size={22} className="text-[#6B0F1A]" />
-            )}
-          </button>
+          {/* Right side: language switcher + menu button */}
+          <div className="flex items-center gap-2">
+
+            <LanguageSwitcher variant="light" />
+
+            <button
+              onClick={() => setOpen(!open)}
+              className="h-10 w-10 rounded-full bg-white shadow-sm flex items-center justify-center hover:bg-[#FFF8EA] transition"
+            >
+              {open ? (
+                <X size={22} className="text-[#6B0F1A]" />
+              ) : (
+                <Menu size={22} className="text-[#6B0F1A]" />
+              )}
+            </button>
+
+          </div>
         </div>
 
         {/* Dropdown Menu */}

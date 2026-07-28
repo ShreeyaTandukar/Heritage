@@ -135,6 +135,10 @@ const heritageSiteSchema = new mongoose.Schema(
         default: "",
       },
     },
+    translations: {
+      type: mongoose.Schema.Types.Mixed,
+      default: {},
+    },
     //optional location data
     latitude: Number,
     longitude: Number,

@@ -1,5 +1,6 @@
 import { UserCircle2, ShieldCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 const PremiumNavbar = ({ site }) => {
   const navigate = useNavigate();
@@ -28,7 +29,10 @@ const PremiumNavbar = ({ site }) => {
             </h2>
           </div>
 
+          
           {/* Profile */}
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher variant ="dark" />
           <button
             onClick={() => navigate("/passport")}
             className="transition hover:scale-110"
@@ -38,6 +42,7 @@ const PremiumNavbar = ({ site }) => {
               className="text-[#D6A94F]"
             />
           </button>
+          </div>
         </div>
       </div>
     </header>

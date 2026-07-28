@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import api from "../utils/api";
+import { useLanguage } from "../context/LanguageContext";
+import { getLocalizedSite } from "../utils/localizeSite";
 import PremiumNavbar from '../components/premium/PremiumNavbar'
 import PremiumHero from '../components/premium/PremiumHero'
 import AnimatedStory from '../components/premium/AnimatedStory'
@@ -12,6 +14,7 @@ import PremiumFooter from '../components/premium/PremiumFooter'
 
 const PremiumHome = () => {
   const { slug } = useParams();
+  const { language, t } = useLanguage();
 
   const [site, setSite] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -53,7 +56,7 @@ const PremiumHome = () => {
     return(
       <div className='min-h-screen flex items-center justify-center bg-[#f8f4ee]'>
         <p className='text-[#7B1E23] font-semibold'>
-          Loading your premium experience...
+          {t("loadingPremium")}
         </p>
       </div>
     );
@@ -63,20 +66,23 @@ const PremiumHome = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-[#F8F4EE] px-6 text-center">
         <p className="text-[#7B1E23] font-semibold text-lg">
-          {error || "Heritage site not found."}
+          {error || t("siteNotFound")}
         </p>
       </div>
     );
   }
+
+  const localizedSite = getLocalizedSite(site, language);
+
   return (
     <>
-    <PremiumNavbar />
-    <PremiumHero />
-    <AnimatedStory />
-    <Artisan />
-    <PremiumHistory />
-    <PremiumGallery />
-    <PremiumBadge />
+    <PremiumNavbar site={localizedSite} />
+    <PremiumHero site={localizedSite} />
+    <AnimatedStory site={localizedSite} />
+    <Artisan site={localizedSite} />
+    <PremiumHistory site={localizedSite} />
+    <PremiumGallery site={localizedSite} />
+    <PremiumBadge site={localizedSite} />
     <PremiumFooter />
     </>
   )

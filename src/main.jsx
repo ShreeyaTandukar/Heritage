@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { LanguageProvider } from './context/LanguageContext.jsx';
 
 AOS.init({
   duration: 1000,
@@ -12,6 +13,8 @@ AOS.init({
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <LanguageProvider>
+      <App />
+    </LanguageProvider>
   </StrictMode>,
 )
