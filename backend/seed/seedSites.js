@@ -139,7 +139,255 @@ const sites = [
             },
         },
     },
+    {
+        slug: "nyatapola",
+        codePrefix: "NT",
+        name: "Nyatapola Temple",
+        shortDescription: "The Five-Storey Wonder of Bhaktapur",
+        tagline: "The Five-Storey Wonder",
+        locationLabel: "Bhaktapur, Nepal",
+        heroImage: "/images/nyatapola.jpg",
+        history:
+            "Rising five stories above Taumadhi Square, Nyatapola is Nepal's tallest pagoda temple, its stairway guarded by pairs of stone figures said to each be ten times stronger than the one below.",
+        hiddenStory:
+            "Legend says the temple's guardians grow stronger with every step — wrestlers, elephants, lions, griffins, and finally the goddesses Baghini and Singhini themselves, each pair ten times mightier than the last.",
+        audioTitle: "The Legend of the Five Guardians",
+        audioGuide: "/audio/baghbhairav.mp3",
+        video: "/videos/baghbhairav.mp4",
+          gallery: [
+            "/images/nytapola.jpg",
+            "/images/BhupatindraMalla.jpg",
+            "/images/Statue.jpg",
+            "/images/SiddhiLakshmi.jpg",
+            
+        ],
+      chapters: [
+    {
+        title: "Chapter 1",
+        heading: "The Rise of Nyatapola",
+        content:
+            "Built in 1702 A.D. during the reign of King Bhupatindra Malla, Nyatapola Temple stands as the tallest pagoda-style temple in Nepal. Dedicated to the powerful goddess Siddhi Lakshmi, the temple was designed to symbolize strength, balance, and divine protection.",
+    },
+    {
+        title: "Chapter 2",
+        heading: "A Temple of Strength",
+        content:
+            "Nyatapola is famous for its remarkable engineering and resilience. Despite experiencing several major earthquakes over the centuries, including the devastating 2015 earthquake, the temple remained standing with only minor damage, showcasing the brilliance of traditional Newar architecture.",
+    },
+    {
+        title: "Chapter 3",
+        heading: "Living Heritage",
+        content:
+            "Today, Nyatapola Temple is one of Bhaktapur's most treasured landmarks and an important part of Nepal's cultural heritage. Thousands of visitors admire its five-tiered structure, while local festivals and Newar traditions continue to keep its spiritual and cultural significance alive.",
+    },
+    {
+        title: "Chapter 4",
+        heading: "Timeline of Preservation",
+        timeline: [
+            {
+                year: "1702 A.D.",
+                title: "Temple Constructed by King Bhupatindra Malla"
+            },
+            {
+                year: "18th Century",
+                title: "Five-Tier Pagoda Completed"
+            },
+            {
+                year: "1934 A.D.",
+                title: "Survived the Great Nepal Earthquake"
+            },
+            {
+                year: "1979 A.D.",
+                title: "Bhaktapur Durbar Square Listed as UNESCO World Heritage Site"
+            },
+            {
+                year: "2015 A.D.",
+                title: "Withstood the Gorkha Earthquake with Minor Damage"
+            },
+            {
+                year: "2016 A.D.",
+                title: "Conservation and Structural Inspections Completed"
+            },
+            {
+                year: "Present",
+                title: "Ongoing Heritage Preservation and Cultural Celebrations"
+            },
+        ],
+    },
+],
+         artisan:{
+            name: "RajBhai Tandukar",
+            role: "Master Wood Carver",
+            location: "Balambu, Chandagiri",
+            image: "/images/artisan.jpg",
+            bio:
+            "With over 25 years of experience, RajBhai Tandukar continues the tional Newar art of wood carving. Every HeritageLink souvenir is handcrafted with dedication and respect for Nepal's cultural heritage.",
+        },
+        badge: {
+            title: "Nyatapola Explorer",
+            image: "/images/badge.jpg",
+            description: "Awarded for completing the Nyatapola Temple heritage journey.",
+        },
+        latitude: 27.671,
+        longitude: 85.4298,
+        isActive: true,
+        translations: {
+            ne: {
+    name: "न्यातपोल मन्दिर",
+    tagline: "पाँच तले आश्चर्य",
+    shortDescription: "भक्तपुरको पाँच तले आश्चर्य",
+    locationLabel: "भक्तपुर, नेपाल",
+    history:
+        "टौमढी चोकमा पाँच तलामाथि ठडिएको, न्यातपोल नेपालको सबैभन्दा अग्लो पगोडा शैलीको मन्दिर हो। यसको सिँढीमा जोडिएका ढुंगाका मूर्तिहरू प्रत्येक तल्लो तहभन्दा दश गुणा बढी बलिया मानिन्छन्।",
+    hiddenStory:
+        "किंवदन्ती अनुसार मन्दिरका संरक्षकहरू प्रत्येक सिँढीसँगै बलियो हुँदै जान्छन् — पहलमानहरू, हात्तीहरू, सिंहहरू, शार्दूलहरू र अन्त्यमा देवी बाघिनी र सिंहिनी, जहाँ प्रत्येक जोडी मुनिको भन्दा दश गुणा शक्तिशाली मानिन्छ।",
+    audioTitle: "पाँच संरक्षकहरूको किंवदन्ती",
+    chapters: [
+        {
+            title: "अध्याय १",
+            heading: "न्यातपोलको निर्माण",
+            content:
+                "इस्वी संवत् १७०२ मा राजा भूपतीन्द्र मल्लको शासनकालमा निर्माण गरिएको न्यातपोल मन्दिर नेपालकै सबैभन्दा अग्लो पगोडा शैलीको मन्दिर हो। शक्तिशाली देवी सिद्धि लक्ष्मीलाई समर्पित यो मन्दिर शक्ति, सन्तुलन र दिव्य सुरक्षाको प्रतीकको रूपमा डिजाइन गरिएको थियो।",
+        },
+        {
+            title: "अध्याय २",
+            heading: "शक्तिको मन्दिर",
+            content:
+                "न्यातपोल आफ्नो अद्भुत वास्तुकला र भूकम्पीय प्रतिरोध क्षमताका लागि प्रसिद्ध छ। शताब्दीयौंदेखि विसं १९९० र २०७२ (सन् २०१५) को विनाशकारी भूकम्प लगायत धेरै ठूला भूकम्पहरू भोगे पनि, यो मन्दिर परम्परागत नेवार वास्तुकलाको उत्कृष्ट उदाहरण प्रस्तुत गर्दै सामान्य क्षतिसहित सुरक्षित उभिरह्यो।",
+        },
+        {
+            title: "अध्याय ३",
+            heading: "जीवन्त सम्पदा",
+            content:
+                "आज न्यातपोल मन्दिर भक्तपुरको सबैभन्दा बहुमूल्य पहिचान र नेपालको सांस्कृतिक सम्पदाको एक महत्त्वपूर्ण अंग हो। हजारौं आगन्तुकहरू यसको पाँच तले संरचनाको प्रशंसा गर्छन्, भने स्थानीय जात्रा-पर्व र नेवारी परम्पराहरूले यसको धार्मिक तथा सांस्कृतिक महत्त्वलाई जीवन्त राखिरहेका छन्।",
+        },
+        {
+            title: "अध्याय ४",
+            heading: "संरक्षणको समयरेखा",
+            timeline: [
+                {
+                    year: "सन् १७०२",
+                    title: "राजा भूपतीन्द्र मल्लद्वारा मन्दिर निर्माण"
+                },
+                {
+                    year: "१८ औं शताब्दी",
+                    title: "पाँच तले पगोडाको पूर्ण निर्माण"
+                },
+                {
+                    year: "सन् १९३४ (वि.सं. १९९०)",
+                    title: "महाभूकम्पमा पनि सुरक्षित रहन सफल"
+                },
+                {
+                    year: "सन् १९७९",
+                    title: "भक्तपुर दरबार क्षेत्र युनेस्को विश्व सम्पदा सूचीमा सूचीकृत"
+                },
+                {
+                    year: "सन् २०१५ (वि.सं. २०७२)",
+                    title: "गोर्खा भूकम्पमा सामान्य क्षतिसहित सुरक्षित"
+                },
+                {
+                    year: "सन् २०१६",
+                    title: "संरक्षण र संरचनात्मक निरीक्षण सम्पन्न"
+                },
+                {
+                    year: "वर्तमान",
+                    title: "निरन्तर सम्पदा संरक्षण तथा सांस्कृतिक उत्सवहरू"
+                },
+            ],
+        },
+    ],
+    artisan: {
+        name: "राजभाइ तण्डुकार",
+        role: "मास्टर काष्ठकलाकार",
+        location: "बलम्बु, चन्द्रागिरि",
+        bio:
+            "२५ वर्षभन्दा बढीको अनुभवका साथ, राजभाइ तण्डुकार काष्ठकलाको परम्परागत नेवारी कलालाई निरन्तरता दिँदै हुनुहुन्छ। हेरिटेजलिङ्कका (HeritageLink) प्रत्येक चिनो नेपालको सांस्कृतिक सम्पदाप्रतिको समर्पण र सम्मानका साथ हातैले तयार पारिएका हुन्।",
+    },
+    badge: {
+        title: "न्यातपोल अन्वेषक",
+        description: "न्यातपोल मन्दिर सम्पदा यात्रा पूरा गरेकोमा प्रदान गरिएको।",
+    },
+},
+           new: {
+    name: "न्यातपोल देगः",
+    tagline: "ङ्यातँ जाःगु आश्चर्य",
+    shortDescription: "ख्वपया ङ्यातँ जाःगु आश्चर्य",
+    locationLabel: "ख्वप, नेपाल",
+    history:
+        "तौमढी डबलीइ ङ्यातँ च्वये थहाँ वंगु, न्यातपोल नेपालया दक्ले तःजाःगु पगोडा शैलीया देगः खः। थुकिया स्वानेया जव-खवः च्वंपिं ल्होंया मूर्तिपिं छगू स्वया मेगु १० गुणा अप्वः शक्तियाःपिं खः धैगु विश्वास दु।",
+    hiddenStory:
+        "किंवदन्ती कथं देगःया रक्षा यानाच्वंपिं छगू स्वाने स्वया मेगु स्वाने वनेबिले अप्वः शक्तिशाली जुया वनि — पहलवानपिं, किसिपिं, सिंहपिं, शार्दूलपिं, व अन्त्यय् देवी बाघिनी व सिंहिनी, गनकि प्रत्येक जोडी मुनिका स्वया १० गुणा अप्वः शक्ति स्वाःगु दु।",
+    audioTitle: "न्याम्ह रक्षकया बाखँ",
+    chapters: [
+        {
+            title: "अध्याय १",
+            heading: "न्यातपोलया देकेज्या",
+            content:
+                "इस्वी संवत् १७०२ य् जुजु भूपतीन्द्र मल्लया शासनकालय् दयेकूगु न्यातपोल देगः नेपालया दक्ले तःजाःगु पगोडा देगः खः। शक्तिशाली देवी सिद्धि लक्ष्मीयात समर्पित थ्व देगः शक्ति, सन्तुलन व दिव्य रक्षाया प्रतीकया रूपय् दयेकातःगु खः।",
+        },
+        {
+            title: "अध्याय २",
+            heading: "शक्तिया देगः",
+            content:
+                "न्यातपोल थगु अद्भूत शिल्प व भुखाःयात सह यायेफुगु क्षमताया लागिं नांजाः। सदियौंदेखि १९९० व २०७२ (सन् २०१५) या तःधँगु भुखाः सह यानाः नं, थ्व देगः परम्परागत नेवाः वास्तुकलाया उत्कृष्ट दसु जुयाः म्हो क्षतिया निसें सुरक्षित दनाच्वंगु दु।",
+        },
+        {
+            title: "अध्याय ३",
+            heading: "म्वाःगु सम्पदा",
+            content:
+                "थौंकन्हय् न्यातपोल देगः ख्वपया दक्ले महत्त्वपूर्ण म्हसीका व नेपालया सांस्कृतिक सम्पदाया छगू मू अंग खः। द्वलँद्वः मनूत थुकिया ङ्यातँ जाःगु देगः स्वयेत वै, धाःसा स्थानीय जात्रा-पर्व व नेवाः परम्परांश थुकिया धार्मिक व सांस्कृतिक महत्त्वयात म्वाकाः तयाच्वंगु दु।",
+        },
+        {
+            title: "अध्याय ४",
+            heading: "संरक्षणया समयरेखा",
+            timeline: [
+                {
+                    year: "सन् १७०२",
+                    title: "जुजु भूपतीन्द्र मल्लद्वारा देगः दयेकादीगु"
+                },
+                {
+                    year: "१८ औं शताब्दी",
+                    title: "ङ्यातँ जाःगु देगः पूर्ण रूपं सिधःगु"
+                },
+                {
+                    year: "सन् १९३४ (वि.सं. १९९०)",
+                    title: "तःधँगु भुखाः निसें नं सुरक्षित च्वनेफूगु"
+                },
+                {
+                    year: "सन् १९७९",
+                    title: "ख्वप लायकू क्षेत्र युनेस्को विश्व सम्पदा धलखय् सूचीकृत"
+                },
+                {
+                    year: "सन् २०१५ (वि.सं. २०७२)",
+                    title: "गोर्खा भुखाः निसें म्हो क्षतिया निसें बचेजूगु"
+                },
+                {
+                    year: "सन् २०१६",
+                    title: "संरक्षण व संरचनात्मक निरीक्षण क्वचाःगु"
+                },
+                {
+                    year: "वर्तमान",
+                    title: "निरन्तर सम्पदा संरक्षण व सांस्कृतिक नखः-चखःत"
+                },
+            ],
+        },
+    ],
+    artisan: {
+        name: "राजभाइ तण्डुकार",
+        role: "मास्टर काष्ठकलाकार",
+        location: "बलम्बु, चन्द्रागिरि",
+        bio:
+            "२५ दूँ स्वया अप्वःया अनुभव नापं, राजभाइ तण्डुकारं परम्परागत नेवाः सिँया कलायात निरन्तरता बियाच्वनादीगु दु। हेरिटेजलिङ्कया (HeritageLink) प्रत्येक स्वाँमन्दः नेपालया सांस्कृतिक सम्पदाप्रतिय निष्ठा व सम्मान नापं ल्हातं दयेकातःगु खः।",
+    },
+    badge: {
+        title: "न्यातपोल अन्वेषक",
+        description: "न्यातपोल देगःया सम्पदा यात्रा सिधेकूगुलिं बियातःगु।",
+    },
+},
+        },
+    },
 ];
+
 
 const run = async () => {
   await connectDB();
