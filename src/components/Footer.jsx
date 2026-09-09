@@ -49,59 +49,59 @@ const Footer = () => {
           {/* Quick Links */}
        
 
-<div>
+        <div>
 
-  <h3 className="text-xl font-semibold text-[#D6A94F] mb-5">
-    Quick Links
-  </h3>
+          <h3 className="text-xl font-semibold text-[#D6A94F] mb-5">
+            Quick Links
+          </h3>
 
-  <ul className="space-y-3 text-gray-300">
+          <ul className="space-y-3 text-gray-300">
 
-    <li>
-      <a href="#home" className="hover:text-[#D6A94F] transition">
-        Home
-      </a>
-    </li>
+            <li>
+              <a href="#home" className="hover:text-[#D6A94F] transition">
+                Home
+              </a>
+            </li>
 
-    <li>
-      <a href="#audio" className="hover:text-[#D6A94F] transition">
-        Audio Guide
-      </a>
-    </li>
+            <li>
+              <a href="#audio" className="hover:text-[#D6A94F] transition">
+                Audio Guide
+              </a>
+            </li>
 
-    <li>
-      <a href="#artisan" className="hover:text-[#D6A94F] transition">
-        Meet the Artisan
-      </a>
-    </li>
+            <li>
+              <a href="#artisan" className="hover:text-[#D6A94F] transition">
+                Meet the Artisan
+              </a>
+            </li>
 
-    <li>
-      <a href="#gallery" className="hover:text-[#D6A94F] transition">
-        Heritage Gallery
-      </a>
-    </li>
+            <li>
+              <a href="#gallery" className="hover:text-[#D6A94F] transition">
+                Heritage Gallery
+              </a>
+            </li>
 
-    <li>
-      <a href="#story" className="hover:text-[#D6A94F] transition">
-        Hidden Story
-      </a>
-    </li>
+            <li>
+              <a href="#story" className="hover:text-[#D6A94F] transition">
+                Hidden Story
+              </a>
+            </li>
 
-    <li>
-      <a href="#badge" className="hover:text-[#D6A94F] transition">
-        Collect Badge
-      </a>
-    </li>
+            <li>
+              <a href="#badge" className="hover:text-[#D6A94F] transition">
+                Collect Badge
+              </a>
+            </li>
 
-    <li>
-      <a href="#why" className="hover:text-[#D6A94F] transition">
-        Why Choose Us
-      </a>
-    </li>
+            <li>
+              <a href="#why" className="hover:text-[#D6A94F] transition">
+                Why Choose Us
+              </a>
+            </li>
 
-  </ul>
+          </ul>
 
-</div>
+        </div>
 
           {/* Social */}
           <div>

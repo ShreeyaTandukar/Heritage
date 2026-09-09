@@ -1,4 +1,5 @@
-//run cd backend then node seed/seedSites.js
+// Run: cd backend
+// Then: node seed/seedSites.js
 
 const dotenv= require("dotenv");
 const connectDB = require("../config/db");
