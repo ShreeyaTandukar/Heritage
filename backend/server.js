@@ -21,6 +21,9 @@ const authRoutes = require("./routes/authRoutes");
 
 app.use("/api/auth",authRoutes);
  app.use("/api/activation",activationRoutes);
+ app.get("/api/test", (req, res) => {
+  res.json({ message: "Backend API is working!" });
+});
 
  
 
