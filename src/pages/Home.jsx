@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../utils/api";
 import { useLanguage } from "../context/LanguageContext";
@@ -6,13 +6,15 @@ import { getLocalizedSite } from "../utils/localizeSite";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import AudioGuide from "../components/AudioGuide";
-import AudioPlayer from '../components/AudioPlayer';
-import Artisan from '../components/Artisan';
-import HeritageGallery from '../components/HeritageGallery';
-import HiddenStory from '../components/HiddenStory';
-import Badge from '../components/Badge';
-import WhyChooseUs from '../components/WhyChoose';
-import Footer from '../components/Footer';
+import AudioPlayer from "../components/AudioPlayer";
+import Artisan from "../components/Artisan";
+import HeritageGallery from "../components/HeritageGallery";
+import HiddenStory from "../components/HiddenStory";
+import Badge from "../components/Badge";
+import WhyChooseUs from "../components/WhyChoose";
+import Footer from "../components/Footer";
+
+import { QRCodeGenerator } from "../components/QRGenerator";
 
 const Home = () => {
   const { slug } = useParams();
@@ -38,8 +40,7 @@ const Home = () => {
       } catch (err) {
         if (!cancelled) {
           setError(
-            err.response?.data?.message ||
-              "Could not load this heritage site."
+            err.response?.data?.message || "Could not load this heritage site.",
           );
         }
       } finally {
@@ -59,9 +60,7 @@ const Home = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#F8F4EE]">
-        <p className="text-[#7B1E23] font-semibold">
-          {t("loadingSite")}
-        </p>
+        <p className="text-[#7B1E23] font-semibold">{t("loadingSite")}</p>
       </div>
     );
   }
@@ -85,19 +84,19 @@ const Home = () => {
 
   return (
     <>
-    <Navbar site={localizedSite} />
-    <Hero site={localizedSite} />
-    <AudioGuide site={localizedSite} />
-    <AudioPlayer site={localizedSite} />
-    <Artisan site={localizedSite} />
-    <HeritageGallery site={localizedSite} />
-    <HiddenStory site={localizedSite} />
-    <Badge site={localizedSite} />
-    <WhyChooseUs />
-    <Footer />
-
+      <Navbar site={localizedSite} />
+      <Hero site={localizedSite} />
+      <AudioGuide site={localizedSite} />
+      <AudioPlayer site={localizedSite} />
+      <Artisan site={localizedSite} />
+      <HeritageGallery site={localizedSite} />
+      <HiddenStory site={localizedSite} />
+      <Badge site={localizedSite} />
+      <WhyChooseUs />
+      <QRCodeGenerator />
+      <Footer />
     </>
   );
-}
+};
 
-export default Home
+export default Home;
